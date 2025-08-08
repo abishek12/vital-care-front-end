@@ -26,32 +26,35 @@ export default function HomeBlogs() {
       aria-labelledby="home-blogs-heading"
       className="bg-white"
     >
-      <div className="mx-auto max-w-7xl px-4 md:px-6 md:py-20">
+      <div className="mx-auto max-w-7xl px-4 py-12 md:px-6 md:py-16">
         {/* Heading row */}
-        <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-12">
-          <div className="md:col-span-7">
+        <div className="grid grid-cols-1 items-end gap-8 md:grid-cols-12">
+          <div className="md:col-span-6">
             <div className="inline-flex items-center rounded-full border border-[#3aa657] bg-white px-3 py-1 text-xs font-semibold text-[#3aa657] ring-1 ring-inset ring-[#3aa657]/30">
               OUR LATEST BLOGS
             </div>
             <h2
               id="home-blogs-heading"
-              className="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl"
+              className="mt-4 flex items-center text-4xl font-extrabold tracking-tight sm:text-5xl"
             >
-              <span className="text-[#e23d35]">Valuable Reads</span>{" "}
-              <span className="text-[#0b3a74]">For You</span>
+              <span className="text-[#e23d35]">Valuable Reads</span>
+              <span className="text-[#0b3a74] ml-4">For You</span>
             </h2>
           </div>
-          <div className="md:col-span-5">
-            <div className="hidden h-16 md:block">
+
+          {/* Divider and description */}
+          <div className="md:col-span-6">
+            <div className="flex h-full items-center">
               <div
-                className="mx-auto h-full w-px bg-gray-200 md:mx-0 md:ml-6"
+                className="hidden h-16 w-px bg-gray-200 md:block"
                 aria-hidden="true"
               />
+              <p className="ml-6 text-sm leading-relaxed text-gray-600">
+                Read value‑packed blogs about NDIS services and updates.
+                Practical guides and insights to help you make confident
+                decisions.
+              </p>
             </div>
-            <p className="mt-0 text-sm leading-relaxed text-gray-600 md:mt-6">
-              Read value‑packed blogs about NDIS services and updates. Practical
-              guides and insights to help you make confident decisions.
-            </p>
           </div>
         </div>
 

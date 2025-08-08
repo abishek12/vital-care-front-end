@@ -30,25 +30,6 @@ export default function ServiceSection() {
               <br />
               <span className="text-white">Lives</span>
             </h2>
-
-            <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 md:items-end">
-              <div className="md:pr-4">
-                <p className="text-[15px] leading-relaxed text-white/85">
-                  At Vital Care Group, we provide essential NDIS support for
-                  participants in NSW that acts as a lifeline for individuals
-                  with disabilities.
-                </p>
-              </div>
-
-              <div className="flex justify-start md:justify-end">
-                <Link
-                  href="/services"
-                  className="inline-flex items-center rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold text-white ring-1 ring-white/25 hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/80"
-                >
-                  More Services
-                </Link>
-              </div>
-            </div>
           </div>
 
           {/* Right: Service Cards */}
@@ -66,6 +47,22 @@ export default function ServiceSection() {
               />
               {/* Add more cards as needed */}
             </div>
+          </div>
+        </div>
+        <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 md:items-end">
+          <p className="text-[15px] leading-relaxed text-white/85">
+            At Vital Care Group, we provide essential NDIS support for
+            participants in NSW that acts as a lifeline for individuals with
+            disabilities.
+          </p>
+
+          <div className="flex justify-start md:justify-end">
+            <Link
+              href="/services"
+              className="inline-flex items-center rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold text-white ring-1 ring-white/25 hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/80"
+            >
+              More Services
+            </Link>
           </div>
         </div>
       </div>

@@ -13,7 +13,7 @@ export default function AboutSection() {
       aria-labelledby="about-heading"
       className="relative bg-white"
     >
-      <div className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
+      <div className="mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-24">
         {/* Row 1: Copy left, image right */}
         <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-12">
           {/* Left copy */}

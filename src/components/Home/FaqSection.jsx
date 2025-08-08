@@ -30,7 +30,7 @@ export default function FAQSection() {
       aria-labelledby="faqs-heading"
       className="relative bg-white"
     >
-      <div className="mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-20">
+      <div className="mx-auto max-w-7xl px-4 py-12 md:px-6 md:py-16">
         {/* Header section in 2-column grid */}
         <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-12">
           {/* Left column for heading content */}

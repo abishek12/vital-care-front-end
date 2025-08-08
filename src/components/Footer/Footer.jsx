@@ -176,8 +176,9 @@ export default function Footer() {
         <div className="mt-6 flex flex-col items-center justify-between gap-3 border-t border-white/10 py-4 text-[12px] text-white/80 md:flex-row">
           <span>© {new Date().getFullYear()} Vital Care Group</span>
           <span>
-            Website Designed &amp; Developed With {"\u2764\uFE0F"} By Vital Care
-            Group
+            ABN 62674647020
+            {/* Website Designed &amp; Developed With {"\u2764\uFE0F"} By Vital Care
+            Group */}
           </span>
         </div>
       </div>

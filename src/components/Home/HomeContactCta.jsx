@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function HomeContactCta() {
   return (
     <section aria-labelledby="home-contact-cta-heading" className="bg-white">
-      <div className="mx-auto max-w-7xl px-4 pb-16 md:px-6 md:pb-24">
+      <div className="mx-auto max-w-7xl px-4 py-12 md:px-6 md:py-16">
         <div className="rounded-[24px] border border-gray-200 bg-white p-6 shadow-[0_2px_20px_rgba(2,6,23,0.06)] md:p-10">
           <div className="inline-flex items-center rounded-full border border-[#3aa657] bg-white px-3 py-1 text-xs font-semibold text-[#3aa657] ring-1 ring-inset ring-[#3aa657]/30">
             CONTACT US
