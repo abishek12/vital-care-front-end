@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function HeroSection() {
   return (
     <section aria-labelledby="hero-heading" className="relative isolate">
@@ -120,33 +122,19 @@ function RightBadges() {
   return (
     <div className="md:col-span-4 lg:col-span-5">
       <div className="hidden gap-6 md:flex md:justify-end">
-        <BadgeCircle title="We " subtitle="ndis" variant="green" />
-        <BadgeCircle title="We Support The" subtitle="ndis" variant="purple" />
+        <Image
+          src="/images/ndis.png"
+          width={100}
+          height={100}
+          alt="NDIS badge"
+        />
+        <Image
+          src="/images/support-ndis.png"
+          width={100}
+          height={100}
+          alt="Support and NDIS badge"
+        />
       </div>
-    </div>
-  );
-}
-
-function BadgeCircle({ title = "We", subtitle = "ndis", variant = "green" }) {
-  const colorClasses = {
-    green: { bg: "bg-green-700", text: "text-white" },
-    purple: { bg: "bg-purple-700", text: "text-white" },
-  };
-
-  const { bg, text } = colorClasses[variant] || colorClasses.green;
-
-  return (
-    <div
-      className={`flex size-28 flex-col items-center justify-center rounded-full text-center shadow-xl ring-4 ring-white/30 ${bg} ${text}`}
-      aria-label={`${title} ${subtitle}`}
-    >
-      <span className="text-xl font-bold leading-none">
-        {title}
-        <span className="sr-only"> </span>
-      </span>
-      <span className="text-2xl font-extrabold uppercase tracking-wide">
-        {subtitle}
-      </span>
     </div>
   );
 }
