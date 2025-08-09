@@ -15,6 +15,8 @@ export default function Page() {
       <HomeBlogs />
       {/* FAQ's Section */}
       <FAQSection />
+      {/* FAQ's Section */}
+      <HomeTestimonial />
       {/* Footer */}
       <Footer />
     </main>
@@ -28,4 +30,5 @@ import ServiceSection from "@/components/Home/ServiceSection";
 import HomeContactCta from "@/components/Home/HomeContactCta";
 import HomeBlogs from "@/components/Home/HomeBlog";
 import FAQSection from "@/components/Home/FaqSection";
+import HomeTestimonial from "@/components/Home/HomeTestimonial";
 import Footer from "@/components/Footer/Footer";

@@ -1,0 +1,149 @@
+"use client";
+
+import Link from "next/link";
+import { Star } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+
+import BookAssessmentDrawer from "../Buton/AssessmentButton";
+
+export default function HomeTestimonial() {
+  const testimonials = [
+    {
+      name: "Rachel W.",
+      role: "NDIS Participant",
+      rating: 5,
+      quote: `I've had a wonderful experience with Vital Care Group. Their commitment to high-quality, person-centred care has been evident from day one...`,
+    },
+    {
+      name: "Mark L.",
+      role: "NDIS Participant",
+      rating: 5,
+      quote: `The staff is knowledgeable and caring, making sure I feel supported and respected...`,
+    },
+    {
+      name: "Sophie D.",
+      role: "NDIS Participant",
+      rating: 5,
+      quote: `Absolutely amazing support from day one. They really understand individual needs...`,
+    },
+    {
+      name: "James T.",
+      role: "NDIS Participant",
+      rating: 4,
+      quote: `Very professional team, always responsive and ready to help...`,
+    },
+  ];
+
+  return (
+    <section
+      id="testimonials"
+      aria-labelledby="testimonials-heading"
+      className="relative isolate text-white"
+    >
+      {/* Background */}
+      <div
+        className="absolute inset-0 -z-10 bg-fixed bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/community-group-2.jpg')" }}
+      />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/70 via-black/55 to-black/45" />
+
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-start gap-10 px-4 py-16 md:grid-cols-12 md:px-6 md:py-24">
+        {/* Left section */}
+        <div className="md:col-span-5">
+          <div className="inline-flex items-center rounded-full border border-[#3aa657] bg-white/5 px-3 py-1 text-xs font-semibold text-[#3aa657] ring-1 ring-inset ring-[#3aa657]/30">
+            TESTIMONIALS
+          </div>
+
+          <h2
+            id="testimonials-heading"
+            className="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl"
+          >
+            <span className="block">A Lifeline Of</span>
+            <span className="block text-[var(--primary-red)]">
+              NDIS Support
+            </span>
+          </h2>
+
+          <p className="mt-4 max-w-md text-sm leading-relaxed text-white/90">
+            Hear from those who have found a lifeline in our personalised NDIS
+            support...
+          </p>
+
+          <div className="mt-6">
+            <BookAssessmentDrawer
+              trigger={
+                <button className="rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold text-white ring-1 ring-white/25 hover:bg-white/20">
+                  Book An Assessment
+                </button>
+              }
+            />{" "}
+          </div>
+        </div>
+
+        {/* Right section (Carousel) */}
+        <div className="md:col-span-7">
+          <Swiper
+            modules={[Pagination]}
+            spaceBetween={20}
+            slidesPerView={1}
+            breakpoints={{
+              768: { slidesPerView: 2 }, // Show 2 slides on tablet/desktop
+            }}
+            pagination={{ clickable: true }}
+            className="testimonial-swiper"
+          >
+            {testimonials.map((t, idx) => (
+              <SwiperSlide key={idx}>
+                <TestimonialCard {...t} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TestimonialCard({ name, role, rating, quote }) {
+  return (
+    <article className="overflow-hidden rounded-3xl bg-white/90 text-gray-900 shadow-xl backdrop-blur">
+      <div className="bg-[var(--primary-blue)] px-6 py-4 text-white">
+        <div className="text-sm font-extrabold">— {name}</div>
+        <div className="mt-1 flex items-center justify-between gap-3 text-xs">
+          <Stars count={rating} />
+          <span className="opacity-90">{role}</span>
+        </div>
+      </div>
+      <div className="px-6 py-5 text-sm leading-relaxed text-gray-800">
+        <p>{quote}</p>
+      </div>
+    </article>
+  );
+}
+
+function Stars({ count = 5 }) {
+  return (
+    <div
+      className="flex items-center gap-0.5"
+      aria-label={`${count} out of 5 stars`}
+      role="img"
+    >
+      {Array.from({ length: 5 }).map((_, i) => {
+        const filled = i < count;
+        return (
+          <Star
+            key={i}
+            className={`size-4 ${
+              filled ? "text-[var(--primary-red)]" : "text-white/50"
+            }`}
+            strokeWidth={filled ? 0 : 2}
+            fill={filled ? "currentColor" : "none"}
+          />
+        );
+      })}
+    </div>
+  );
+}

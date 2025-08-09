@@ -6,6 +6,8 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
+import BookAssessmentDrawer from "../Buton/AssessmentButton";
+
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
@@ -71,12 +73,13 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden md:flex">
-          <Link
-            href="/book"
-            className="inline-flex items-center rounded-full bg-[#0b3a74] px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#0a3a66] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0b3a74]"
-          >
-            Book An Assessment
-          </Link>
+          <BookAssessmentDrawer
+            trigger={
+              <button className="rounded-full bg-[#0b3a74] px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#0a3a66]">
+                Book An Assessment
+              </button>
+            }
+          />{" "}
         </div>
 
         <button

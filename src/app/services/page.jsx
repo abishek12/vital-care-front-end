@@ -4,6 +4,8 @@ import ServiceCard from "@/components/Services/services-card";
 import { SERVICES } from "@/lib/data/services";
 import Link from "next/link";
 
+import BookAssessmentDrawer from "@/components/Buton/AssessmentButton";
+
 export const metadata = {
   title: "Services | Vital Care Group",
   description:
@@ -32,12 +34,19 @@ export default function ServicesPage() {
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link
+              {/* <Link
                 href="/book"
                 className="inline-flex items-center rounded-full bg-[#0b3a74] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#0a3366]"
               >
                 Book an Assessment
-              </Link>
+              </Link> */}
+              <BookAssessmentDrawer
+                trigger={
+                  <button className="rounded-full bg-[#0b3a74] px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#0a3a66] cursor-pointer">
+                    Book An Assessment
+                  </button>
+                }
+              />{" "}
               <Link
                 href="/contact"
                 className="inline-flex items-center rounded-full border border-[#0b3a74]/20 bg-white px-5 py-2.5 text-sm font-semibold text-[#0b3a74] hover:bg-[#0b3a74]/5"
