@@ -35,10 +35,12 @@ export default function HomeBlogs() {
             </div>
             <h2
               id="home-blogs-heading"
-              className="mt-4 flex items-center text-4xl font-extrabold tracking-tight sm:text-5xl"
+              className="mt-4 flex items-center text-4xl tracking-tight sm:text-5xl"
             >
-              <span className="text-[#e23d35]">Valuable Reads</span>
-              <span className="text-[#0b3a74] ml-4">For You</span>
+              <span className="text-[#e23d35] font-light">Valuable Reads</span>
+              <span className="text-[#0b3a74] ml-4 font-extrabold">
+                For You
+              </span>
             </h2>
           </div>
 

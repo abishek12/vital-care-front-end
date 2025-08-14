@@ -251,12 +251,17 @@ export default function CareersPage() {
 
 function Benefit({ icon, title, desc }) {
   return (
-    <div className="rounded-2xl border border-white/15 bg-white/5 p-5 ring-1 ring-white/10 backdrop-blur">
-      <div className="inline-flex size-10 items-center justify-center rounded-full bg-white/10">
+    <div className="rounded-2xl border border-white/15 bg-white/5 p-6 ring-1 ring-white/10 backdrop-blur flex flex-col items-start gap-3">
+      {/* Icon container */}
+      <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/10 text-white shrink-0">
         {icon}
       </div>
-      <h4 className="mt-3 font-extrabold">{title}</h4>
-      <p className="mt-1 text-sm text-white/85">{desc}</p>
+
+      {/* Text section */}
+      <div>
+        <h4 className="font-extrabold">{title}</h4>
+        <p className="mt-1 text-sm text-white/85">{desc}</p>
+      </div>
     </div>
   );
 }

@@ -3,6 +3,7 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function BookAssessmentDrawer({ trigger }) {
   return (
@@ -23,26 +24,50 @@ export default function BookAssessmentDrawer({ trigger }) {
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
             className="fixed right-0 top-0 h-screen w-full max-w-md bg-white shadow-lg z-50 p-6 overflow-y-auto focus:outline-none"
           >
-            <div className="flex justify-between items-center mb-4">
-              <Dialog.Title className="text-lg font-bold">
-                Book an Assessment
-              </Dialog.Title>
+            {/* Close Icon */}
+            <div className="flex justify-end mb-4">
               <Dialog.Close asChild>
-                <button className="cursor-pointer">
-                  <X className="size-6" />
+                <button className="bg-gray-100 hover:bg-gray-200 p-2 rounded-full cursor-pointer">
+                  <X className="size-5 text-gray-700" />
                 </button>
               </Dialog.Close>
             </div>
 
-            <form className="space-y-4">
+            {/* Logo and Intro Text */}
+            <div className="text-center mb-6">
+              <Image
+                src="/logo/Vital-Care-Group-Colour.svg"
+                alt="Company Logo"
+                width={100} // increased width
+                height={100} // increased height
+                className="mx-auto"
+              />
+              <h2 className="text-xl font-bold mt-4">We Are Here For You</h2>
+              <p className="text-gray-600 text-sm mt-1">
+                Fill in your details and we’ll contact you shortly.
+              </p>
+            </div>
+
+            {/* Form */}
+            <form className="space-y-4 mt-12">
               <input
                 type="text"
-                placeholder="Your Name"
+                placeholder="Fullname"
                 className="w-full border rounded px-3 py-2"
               />
               <input
                 type="email"
-                placeholder="Your Email"
+                placeholder="Email"
+                className="w-full border rounded px-3 py-2"
+              />
+              <input
+                type="text"
+                placeholder="Contact Number"
+                className="w-full border rounded px-3 py-2"
+              />
+              <input
+                type="text"
+                placeholder="Address"
                 className="w-full border rounded px-3 py-2"
               />
               <textarea

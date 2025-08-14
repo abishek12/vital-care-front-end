@@ -11,10 +11,12 @@ export default function HomeContactCta() {
 
           <h2
             id="home-contact-cta-heading"
-            className="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl"
+            className="mt-4 text-3xl  tracking-tight sm:text-4xl"
           >
-            <span className="text-[#e23d35]">Start Your Path</span>{" "}
-            <span className="text-[#0b3a74]">To Better Care</span>
+            <span className="text-[#e23d35] font-light">Start Your Path</span>{" "}
+            <span className="text-[#0b3a74] font-extrabold ml-4">
+              To Better Care
+            </span>
           </h2>
 
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-gray-600">

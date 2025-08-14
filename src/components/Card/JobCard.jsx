@@ -22,13 +22,6 @@ export default function JobCard({ job }) {
 
   return (
     <article className="relative overflow-hidden rounded-3xl border border-gray-200 bg-white p-6 shadow-sm ring-1 ring-gray-100 transition hover:-translate-y-0.5 hover:shadow-md">
-      {/* Floating red badge */}
-      <div className="absolute -top-7 left-1/2 -translate-x-1/2">
-        <div className="inline-flex size-14 items-center justify-center rounded-full bg-[#e23d35] text-white shadow-lg ring-4 ring-[#e23d35]/25">
-          <Briefcase className="size-7" aria-hidden="true" />
-        </div>
-      </div>
-
       <header className="pt-6">
         <h3 className="text-2xl font-extrabold leading-snug text-[#0b3a74]">
           {job.title}

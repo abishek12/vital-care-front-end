@@ -8,12 +8,13 @@
   --primary-red: #e23d35;
   --primary-green: #3aa657;
   --primary-purple: #6d28d9;
+  --font-lato: "Lato", sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-poppins);
+  font-family: var(--font-lato);
 }
 
 .testimonial-swiper .swiper-pagination {

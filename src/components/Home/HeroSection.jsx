@@ -53,10 +53,14 @@ function MainHeading() {
   return (
     <h1
       id="hero-heading"
-      className="mt-5 text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl"
+      className="mt-5 text-4xl tracking-tight sm:text-5xl lg:text-6xl"
     >
-      <span className="block text-white">VITAL CARE GROUP OFFERS YOU</span>
-      <span className="block text-[#e23d35] mt-2">IN‑HOME SUPPORT</span>
+      <span className="block text-white font-light">
+        VITAL CARE GROUP OFFERS YOU
+      </span>
+      <span className="block text-[#e23d35] mt-2 font-extrabold">
+        IN‑HOME SUPPORT
+      </span>
     </h1>
   );
 }

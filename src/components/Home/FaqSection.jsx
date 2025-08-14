@@ -40,10 +40,12 @@ export default function FAQSection() {
             </div>
             <h2
               id="about-heading"
-              className="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl"
+              className="mt-4 text-4xl tracking-tight sm:text-5xl"
             >
-              <span className="text-[#e23d35]">Get Your</span>
-              <span className="text-[#0b3a74] ml-4">Doubts Resolved</span>
+              <span className="text-[#e23d35] font-light">Get Your</span>
+              <span className="text-[#0b3a74] ml-4 font-extrabold">
+                Doubts Resolved
+              </span>
             </h2>
             <p className="mt-4 text-gray-700">
               Have questions or concerns? We're here to help! Our FAQ section is

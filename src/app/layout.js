@@ -1,11 +1,11 @@
-import { Poppins } from "next/font/google";
+import { Lato } from "next/font/google";
 import "./globals.css";
 
-const poppins = Poppins({
+const lato = Lato({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-poppins",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-lato",
+  weight: ["100", "300", "400", "700", "900"],
 });
 
 export const metadata = {
@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
-      <body className={`${poppins.variable} antialiased`}>
+      <body className={`${lato.variable} antialiased`}>
         {children}
         <ScrollToTop />
       </body>

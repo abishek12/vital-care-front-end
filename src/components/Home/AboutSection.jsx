@@ -24,11 +24,15 @@ export default function AboutSection() {
 
             <h2
               id="about-heading"
-              className="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl"
+              className="mt-4 text-4xl tracking-tight sm:text-5xl"
             >
-              <span className="text-[#e23d35]">Personalised Support For</span>
+              <span className="text-[#e23d35] font-light">
+                Personalised Support For
+              </span>
               <br />
-              <span className="text-[#0b3a74]">A Brighter Future</span>
+              <span className="text-[#0b3a74] font-extrabold">
+                A Brighter Future
+              </span>
             </h2>
 
             <div className="mt-5 max-w-2xl space-y-4 text-[15px] leading-relaxed text-gray-700">

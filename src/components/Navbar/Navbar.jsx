@@ -75,7 +75,7 @@ export default function Navbar() {
         <div className="hidden md:flex">
           <BookAssessmentDrawer
             trigger={
-              <button className="rounded-full bg-[#0b3a74] px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#0a3a66]">
+              <button className="rounded-full bg-[#0b3a74] px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#0a3a66] hover:cursor-pointer">
                 Book An Assessment
               </button>
             }
