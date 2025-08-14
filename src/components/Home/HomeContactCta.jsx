@@ -1,4 +1,4 @@
-import Link from "next/link";
+import BookAssessmentDrawer from "../Buton/AssessmentButton";
 
 export default function HomeContactCta() {
   return (
@@ -25,12 +25,13 @@ export default function HomeContactCta() {
           </p>
 
           <div className="mt-6">
-            <Link
-              href="/book"
-              className="inline-flex items-center rounded-full bg-[#0b3a74] px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#0a3366]"
-            >
-              Book An Assessment
-            </Link>
+            <BookAssessmentDrawer
+              trigger={
+                <button className="rounded-full bg-[#0b3a74] px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#0a3a66] hover:cursor-pointer">
+                  Book An Assessment
+                </button>
+              }
+            />{" "}
           </div>
         </div>
       </div>

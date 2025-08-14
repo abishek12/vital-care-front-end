@@ -34,22 +34,39 @@ export default function BookAssessmentDrawer({ trigger }) {
             </div>
 
             {/* Logo and Intro Text */}
-            <div className="text-center mb-6">
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="text-center mb-6"
+            >
               <Image
                 src="/logo/Vital-Care-Group-Colour.svg"
                 alt="Company Logo"
-                width={100} // increased width
-                height={100} // increased height
+                width={100}
+                height={100}
                 className="mx-auto"
               />
               <h2 className="text-xl font-bold mt-4">We Are Here For You</h2>
               <p className="text-gray-600 text-sm mt-1">
                 Fill in your details and we’ll contact you shortly.
               </p>
-            </div>
+            </motion.div>
 
             {/* Form */}
-            <form className="space-y-4 mt-12">
+            <motion.form
+              className="space-y-4 mt-12"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 20, opacity: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 150,
+                damping: 25,
+                delay: 0.1,
+              }}
+            >
               <input
                 type="text"
                 placeholder="Fullname"
@@ -81,7 +98,7 @@ export default function BookAssessmentDrawer({ trigger }) {
               >
                 Submit
               </button>
-            </form>
+            </motion.form>
           </motion.div>
         </Dialog.Content>
       </Dialog.Portal>
