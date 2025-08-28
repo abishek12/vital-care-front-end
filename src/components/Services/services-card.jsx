@@ -4,6 +4,7 @@ export default function ServiceCard({
   description = "Short description about the service goes here.",
   icon: Icon = null,
   className,
+  id,
 }) {
   return (
     <article
@@ -14,7 +15,7 @@ export default function ServiceCard({
       )}
     >
       {/* Floating icon badge */}
-      <div className="absolute -top-7 left-1/2 -translate-x-1/2">
+      <div className={`absolute -top-7 left-1/2 -translate-x-1/2 ${id}`}>
         <div className="inline-flex size-14 items-center justify-center rounded-full bg-[#e23d35] text-white shadow-lg ring-4 ring-[#e23d35]/25">
           {Icon ? <Icon className="size-7" aria-hidden="true" /> : null}
         </div>

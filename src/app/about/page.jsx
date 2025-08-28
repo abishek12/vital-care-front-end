@@ -1,7 +1,9 @@
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import {
+  Goal,
   HeartHandshake,
+  HandHeart,
   ShieldCheck,
   Users2,
   Clock,
@@ -10,6 +12,8 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
+
+import BookAssessmentDrawer from "../../components/Buton/AssessmentButton";
 
 export default function AboutPage() {
   return (
@@ -73,7 +77,9 @@ export default function AboutPage() {
 
       {/* Stats */}
       <section aria-label="Key statistics" className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-10 md:px-6">
+        <div className="mx-auto max-w-7xl px-4 py-8 md:px-6">
+          {" "}
+          {/* Reduced from py-10 */}
           <div className="grid grid-cols-2 gap-4 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm sm:grid-cols-4">
             <Stat value="10+" label="Years Combined Experience" />
             <Stat value="50+" label="Qualified Support Staff" />
@@ -85,17 +91,24 @@ export default function AboutPage() {
 
       {/* Mission & Vision */}
       <section className="bg-gradient-to-b from-white to-[#0b3a74]/5">
-        <div className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="mx-auto max-w-7xl px-4 py-8 md:px-6">
+          {" "}
+          {/* Reduced from py-10 */}
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             <Card
-              icon={<HeartHandshake className="size-6" />}
+              icon={<HandHeart className="size-6" />}
+              title="Our Values"
+              desc="Innovation, Trust, Respect, Integrity, Empowerment, Dignity"
+            />
+            <Card
+              icon={<Goal className="size-6" />}
               title="Our Mission"
-              desc="Provide personalised, high‑quality support that empowers people to thrive at home and in their community."
+              desc="To empower, encourage, and enable people who are aging or have disabilities to enhance their quality of life with dignity and respect. To evaluate and exceed stakeholders’ expectations. To provide care focused on the holistic view of each individual."
             />
             <Card
               icon={<Sparkles className="size-6" />}
               title="Our Vision"
-              desc="A future where everyone has equitable access to the supports they need to live with dignity, choice, and independence."
+              desc="At Vital Care Group, our vision is to build a resilient and empowered community by partnering with individuals with disabilities, empowering them to lead fulfilling lives full of choice, dignity, and opportunity."
             />
           </div>
         </div>
@@ -204,12 +217,13 @@ export default function AboutPage() {
               tailored to your goals.
             </p>
             <div className="mt-6">
-              <Link
-                href="/book"
-                className="inline-flex items-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#0b3a74] hover:bg-white/90"
-              >
-                Book an Assessment <ArrowRight className="ml-2 size-4" />
-              </Link>
+              <BookAssessmentDrawer
+                trigger={
+                  <button className="rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold text-white ring-1 ring-white/25 hover:bg-white/20 hover:cursor-pointer">
+                    Book An Assessment
+                  </button>
+                }
+              />{" "}
             </div>
           </div>
         </div>

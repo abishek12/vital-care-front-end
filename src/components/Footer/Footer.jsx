@@ -7,7 +7,10 @@ const quickLinks = [
   { label: "Services", href: "/services" },
   { label: "FAQs", href: "/faqs" },
   { label: "Blogs", href: "/blogs" },
-  { label: "Feedback Form", href: "/feedback" },
+  {
+    label: "Feedback Form",
+    href: "https://docs.google.com/forms/d/e/1FAIpQLScuXYn2Y0XpZ8oBJd538Vg0jAiejPLKD-8KNx6UqIcjxw4L1g/viewform?fbzx=-2727018033967158586",
+  },
   { label: "Contact Us", href: "/contact" },
   { label: "Privacy Policy", href: "/privacy" },
 ];
@@ -15,16 +18,16 @@ const quickLinks = [
 const serviceLinks = [
   {
     label: "Daily Personal Activities",
-    href: "/services/daily-personal-activities",
+    href: "/services/#daily-personal-activities",
   },
-  { label: "Household Tasks", href: "/services/household-tasks" },
+  { label: "Household Tasks", href: "/services/#household-tasks" },
   {
     label: "Innovative Community Participation",
-    href: "/services/innovative-community-participation",
+    href: "/services/#innovative-community-participation",
   },
   {
     label: "Development of Daily Living and Life Skills",
-    href: "/services/daily-living-and-life-skills",
+    href: "/services/#daily-living-and-life-skills",
   },
   { label: "More Services", href: "/services" },
 ];

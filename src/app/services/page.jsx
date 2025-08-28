@@ -74,6 +74,7 @@ export default function ServicesPage() {
               title={s.title}
               description={s.description}
               icon={s.icon}
+              id={s.slug}
             />
           ))}
         </div>
