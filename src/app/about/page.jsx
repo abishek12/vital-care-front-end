@@ -25,7 +25,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 -z-10">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/about-hero.jpg"
+            src="/images/about-hero.jpeg"
             alt="Care team supporting a participant in a bright, welcoming space"
             className="h-full w-full object-cover"
           />
@@ -66,7 +66,7 @@ export default function AboutPage() {
             <div className="md:col-span-5">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/about-hero.jpg"
+                src="/images/about-hero.jpeg"
                 alt="Smiling participants together outdoors"
                 className="w-full rounded-2xl object-cover shadow-lg"
               />
