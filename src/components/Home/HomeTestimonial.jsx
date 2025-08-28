@@ -1,11 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import { Star } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import { motion } from "framer-motion";
 
 import BookAssessmentDrawer from "../Buton/AssessmentButton";
 
@@ -37,11 +37,36 @@ export default function HomeTestimonial() {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
-    <section
+    <motion.section
       id="testimonials"
       aria-labelledby="testimonials-heading"
       className="relative isolate text-white"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={containerVariants}
     >
       {/* Background */}
       <div
@@ -52,7 +77,7 @@ export default function HomeTestimonial() {
 
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-start gap-10 px-4 py-16 md:grid-cols-12 md:px-6 md:py-24">
         {/* Left section */}
-        <div className="md:col-span-5">
+        <motion.div className="md:col-span-5" variants={itemVariants}>
           <div className="inline-flex items-center rounded-full border border-[#3aa657] bg-white/5 px-3 py-1 text-xs font-semibold text-[#3aa657] ring-1 ring-inset ring-[#3aa657]/30">
             TESTIMONIALS
           </div>
@@ -81,10 +106,10 @@ export default function HomeTestimonial() {
               }
             />{" "}
           </div>
-        </div>
+        </motion.div>
 
         {/* Right section (Carousel) */}
-        <div className="md:col-span-7">
+        <motion.div className="md:col-span-7" variants={itemVariants}>
           <Swiper
             modules={[Pagination]}
             spaceBetween={20}
@@ -101,15 +126,23 @@ export default function HomeTestimonial() {
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 
 function TestimonialCard({ name, role, rating, quote }) {
+  const cardVariants = {
+    hidden: { scale: 0.95, opacity: 0 },
+    visible: { scale: 1, opacity: 1, transition: { duration: 0.4 } },
+  };
+
   return (
-    <article className="overflow-hidden rounded-3xl bg-white/90 text-gray-900 shadow-xl backdrop-blur">
+    <motion.article
+      className="overflow-hidden rounded-3xl bg-white/90 text-gray-900 shadow-xl backdrop-blur"
+      variants={cardVariants}
+    >
       <div className="bg-[var(--primary-blue)] px-6 py-4 text-white">
         <div className="text-sm font-extrabold">— {name}</div>
         <div className="mt-1 flex items-center justify-between gap-3 text-xs">
@@ -120,11 +153,21 @@ function TestimonialCard({ name, role, rating, quote }) {
       <div className="px-6 py-5 text-sm leading-relaxed text-gray-800">
         <p>{quote}</p>
       </div>
-    </article>
+    </motion.article>
   );
 }
 
 function Stars({ count = 5 }) {
+  const starVariants = {
+    hidden: { opacity: 0 },
+    visible: (i) => ({
+      opacity: 1,
+      transition: {
+        delay: i * 0.1,
+      },
+    }),
+  };
+
   return (
     <div
       className="flex items-center gap-0.5"
@@ -134,14 +177,21 @@ function Stars({ count = 5 }) {
       {Array.from({ length: 5 }).map((_, i) => {
         const filled = i < count;
         return (
-          <Star
+          <motion.div
             key={i}
-            className={`size-4 ${
-              filled ? "text-[var(--primary-red)]" : "text-white/50"
-            }`}
-            strokeWidth={filled ? 0 : 2}
-            fill={filled ? "currentColor" : "none"}
-          />
+            custom={i}
+            initial="hidden"
+            animate="visible"
+            variants={starVariants}
+          >
+            <Star
+              className={`size-4 ${
+                filled ? "text-[var(--primary-red)]" : "text-white/50"
+              }`}
+              strokeWidth={filled ? 0 : 2}
+              fill={filled ? "currentColor" : "none"}
+            />
+          </motion.div>
         );
       })}
     </div>
