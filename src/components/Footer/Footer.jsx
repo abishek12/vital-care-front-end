@@ -55,15 +55,17 @@ export default function Footer() {
             {/* Socials */}
             <div className="mt-6 flex items-center gap-3">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/profile.php?id=61564105661588"
                 aria-label="Facebook"
+                target="_blank"
                 className="inline-flex size-9 items-center justify-center rounded-full border border-white/20 text-white hover:bg-white/10"
               >
                 <Facebook className="size-4" aria-hidden="true" />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/vital_care_group/"
                 aria-label="Instagram"
+                target="_blank"
                 className="inline-flex size-9 items-center justify-center rounded-full border border-white/20 text-white hover:bg-white/10"
               >
                 <Instagram className="size-4" aria-hidden="true" />

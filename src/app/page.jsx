@@ -12,7 +12,7 @@ export default function Page() {
       {/* Contact CTA Section */}
       <HomeContactCta />
       {/* Blogs Section */}
-      <HomeBlogs />
+      {/* <HomeBlogs /> */}
       {/* FAQ's Section */}
       <FAQSection />
       {/* FAQ's Section */}
