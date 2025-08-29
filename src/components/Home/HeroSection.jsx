@@ -78,7 +78,6 @@ function LeftContent() {
       <MainHeading />
       <DescriptionText />
       <ActionButtons />
-      <TrustIndicators />
     </motion.div>
   );
 }
@@ -218,84 +217,6 @@ function ActionButtons() {
   );
 }
 
-function TrustIndicators() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 1.4,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  return (
-    <motion.div
-      className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8"
-      variants={containerVariants}
-    >
-      <motion.div className="flex items-center gap-3" variants={itemVariants}>
-        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#3aa657]/20">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 text-[#3aa657]"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-            />
-          </svg>
-        </div>
-        <div>
-          <p className="text-sm font-medium text-white">Quality Certified</p>
-          <p className="text-xs text-white/80">Premium care standards</p>
-        </div>
-      </motion.div>
-
-      <motion.div className="flex items-center gap-3" variants={itemVariants}>
-        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#e23d35]/20">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 text-[#e23d35]"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
-        </div>
-        <div>
-          <p className="text-sm font-medium text-white">50+ Reviews</p>
-          <p className="text-xs text-white/80">Highly rated service</p>
-        </div>
-      </motion.div>
-    </motion.div>
-  );
-}
-
 function RightBadges() {
   const containerVariants = {
     hidden: { opacity: 0, x: 50 },
@@ -335,7 +256,7 @@ function RightBadges() {
       <div className="flex flex-col items-center gap-8 md:items-end">
         <div className="grid grid-cols-2 gap-6">
           <motion.div
-            className="flex flex-col items-center justify-center rounded-2xl bg-white/10 p-6 backdrop-blur-sm ring-1 ring-white/20"
+            className="flex flex-col items-center justify-center rounded-2xl p-6"
             variants={itemVariants}
             whileHover="hover"
           >
@@ -346,12 +267,9 @@ function RightBadges() {
               alt="NDIS Certified Provider"
               className="h-auto"
             />
-            <p className="mt-3 text-center text-sm font-medium text-white">
-              NDIS Certified
-            </p>
           </motion.div>
           <motion.div
-            className="flex flex-col items-center justify-center rounded-2xl bg-white/10 p-6 backdrop-blur-sm ring-1 ring-white/20"
+            className="flex flex-col items-center justify-center rounded-2xl p-6"
             variants={itemVariants}
             whileHover="hover"
           >
@@ -362,39 +280,8 @@ function RightBadges() {
               alt="Support and NDIS badge"
               className="h-auto"
             />
-            <p className="mt-3 text-center text-sm font-medium text-white">
-              Quality Support
-            </p>
           </motion.div>
         </div>
-
-        <motion.div
-          className="rounded-2xl bg-white/10 p-6 backdrop-blur-sm ring-1 ring-white/20 max-w-xs"
-          variants={itemVariants}
-          whileHover="hover"
-        >
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#3aa657]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
-            </div>
-            <p className="text-sm text-white">
-              Registered NDIS provider since 2018
-            </p>
-          </div>
-        </motion.div>
       </div>
     </motion.div>
   );
