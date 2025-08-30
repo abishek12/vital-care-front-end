@@ -282,6 +282,31 @@ function RightBadges() {
             />
           </motion.div>
         </div>
+        <motion.div
+          className="rounded-2xl bg-white/10 p-6 backdrop-blur-sm ring-1 ring-white/20 max-w-xs"
+          variants={itemVariants}
+          whileHover="hover"
+        >
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#3aa657]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+            </div>
+            <p className="text-sm text-white">Registered NDIS provider</p>
+          </div>
+        </motion.div>
       </div>
     </motion.div>
   );

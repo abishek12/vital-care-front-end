@@ -94,7 +94,7 @@ export default function HomeContactCta() {
               />
 
               <a
-                href="tel:1300000000"
+                href="tel:0403441882"
                 className="flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-base font-semibold text-[#0b3a74] shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 transition-colors duration-200"
               >
                 <Phone className="h-5 w-5" />
