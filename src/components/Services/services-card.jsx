@@ -1,4 +1,35 @@
 import { cn } from "@/lib/utils/cn";
+import { motion } from "framer-motion";
+
+// Animation variants for the card
+const cardVariants = {
+  hidden: { opacity: 0, y: 20, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut"
+    }
+  }
+};
+
+// Animation for the icon
+const iconVariants = {
+  hidden: { scale: 0, rotate: -180 },
+  visible: {
+    scale: 1,
+    rotate: 0,
+    transition: {
+      type: "spring",
+      stiffness: 260,
+      damping: 20,
+      delay: 0.2
+    }
+  }
+};
+
 export default function ServiceCard({
   title = "Service Title",
   description = "Short description about the service goes here.",
@@ -7,18 +38,26 @@ export default function ServiceCard({
   id,
 }) {
   return (
-    <article
+    <motion.article
       className={cn(
         "relative rounded-3xl border border-gray-200 bg-white p-6 pt-10 shadow-sm ring-1 ring-gray-100",
-        "transition hover:-translate-y-0.5 hover:shadow-md",
+        "transition hover:-translate-y-0.5 hover:shadow-md mb-5",
         className
       )}
+      variants={cardVariants}
+      whileHover={{ 
+        y: -5,
+        transition: { duration: 0.2 }
+      }}
     >
       {/* Floating icon badge */}
       <div className={`absolute -top-7 left-1/2 -translate-x-1/2 ${id}`}>
-        <div className="inline-flex size-14 items-center justify-center rounded-full bg-[#e23d35] text-white shadow-lg ring-4 ring-[#e23d35]/25">
+        <motion.div 
+          className="inline-flex size-14 items-center justify-center rounded-full bg-[#e23d35] text-white shadow-lg ring-4 ring-[#e23d35]/25"
+          variants={iconVariants}
+        >
           {Icon ? <Icon className="size-7" aria-hidden="true" /> : null}
-        </div>
+        </motion.div>
       </div>
 
       <h3 className="text-2xl font-extrabold leading-snug text-[#0b3a74]">
@@ -27,6 +66,6 @@ export default function ServiceCard({
       <p className="mt-3 text-sm leading-relaxed text-gray-700">
         {description}
       </p>
-    </article>
+    </motion.article>
   );
 }

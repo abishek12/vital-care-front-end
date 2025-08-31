@@ -1,19 +1,12 @@
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
-import {
-  Goal,
-  HeartHandshake,
-  HandHeart,
-  ShieldCheck,
-  Users2,
-  Clock,
-  Stethoscope,
-  Sparkles,
-  ArrowRight,
-} from "lucide-react";
 import Link from "next/link";
 
 import BookAssessmentDrawer from "../../components/Buton/AssessmentButton";
+import AboutHero from "./components/AboutHero";
+import AboutStats from "./components/AboutStats";
+import AboutMission from "./components/AboutMission";
+import AboutValue from "./components/AboutValue";
 
 export default function AboutPage() {
   return (
@@ -21,144 +14,16 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative isolate">
-        <div className="absolute inset-0 -z-10">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/about-hero.jpeg"
-            alt="Care team supporting a participant in a bright, welcoming space"
-            className="h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-white/70 backdrop-blur-[2px]" />
-        </div>
-
-        <div className="mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-24">
-          <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-12">
-            <div className="md:col-span-7">
-              <div className="inline-flex items-center rounded-full border border-[#3aa657] bg-white px-3 py-1 text-xs font-semibold text-[#3aa657] ring-1 ring-inset ring-[#3aa657]/30">
-                WHO WE ARE
-              </div>
-              <h1 className="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">
-                <span className="text-[#e23d35]">Personalised Support</span>{" "}
-                <span className="text-[#0b3a74]">Led by Compassion</span>
-              </h1>
-              <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-gray-700">
-                We help people live with dignity, choice, and independence. Our
-                experienced team provides tailored in‑home and community support
-                designed around your goals.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Link
-                  href="/services"
-                  className="inline-flex items-center rounded-full bg-[#0b3a74] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#0a3366]"
-                >
-                  Explore Services <ArrowRight className="ml-2 size-4" />
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center rounded-full border border-[#0b3a74]/20 bg-white px-5 py-2.5 text-sm font-semibold text-[#0b3a74] hover:bg-[#0b3a74]/5"
-                >
-                  Contact Us
-                </Link>
-              </div>
-            </div>
-
-            <div className="md:col-span-5">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/about-hero.jpeg"
-                alt="Smiling participants together outdoors"
-                className="w-full rounded-2xl object-cover shadow-lg"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <AboutHero/>
 
       {/* Stats */}
-      <section aria-label="Key statistics" className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-8 md:px-6">
-          {" "}
-          {/* Reduced from py-10 */}
-          <div className="grid grid-cols-2 gap-4 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm sm:grid-cols-4">
-            <Stat value="10+" label="Years Combined Experience" />
-            <Stat value="50+" label="Qualified Support Staff" />
-            <Stat value="120+" label="Participants Served" />
-            <Stat value="96%" label="Positive Feedback" />
-          </div>
-        </div>
-      </section>
+      <AboutStats />
 
       {/* Mission & Vision */}
-      <section className="bg-gradient-to-b from-white to-[#0b3a74]/5">
-        <div className="mx-auto max-w-7xl px-4 py-8 md:px-6">
-          {" "}
-          {/* Reduced from py-10 */}
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-            <Card
-              icon={<HandHeart className="size-6" />}
-              title="Our Values"
-              desc="Innovation, Trust, Respect, Integrity, Empowerment, Dignity"
-            />
-            <Card
-              icon={<Goal className="size-6" />}
-              title="Our Mission"
-              desc="To empower, encourage, and enable people who are aging or have disabilities to enhance their quality of life with dignity and respect. To evaluate and exceed stakeholders’ expectations. To provide care focused on the holistic view of each individual."
-            />
-            <Card
-              icon={<Sparkles className="size-6" />}
-              title="Our Vision"
-              desc="At Vital Care Group, our vision is to build a resilient and empowered community by partnering with individuals with disabilities, empowering them to lead fulfilling lives full of choice, dignity, and opportunity."
-            />
-          </div>
-        </div>
-      </section>
+      <AboutMission/>
 
       {/* Values */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
-          <h2 className="text-3xl font-extrabold tracking-tight text-[#0b3a74] sm:text-4xl">
-            Our Core Values
-          </h2>
-          <p className="mt-3 max-w-2xl text-sm text-gray-600">
-            We’re guided by principles that ensure safe, meaningful and
-            person‑centred care.
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <ValueCard
-              icon={HeartHandshake}
-              title="Compassion"
-              desc="We listen first and support with empathy and respect."
-            />
-            <ValueCard
-              icon={ShieldCheck}
-              title="Safety & Quality"
-              desc="We adhere to best practice and NDIS standards in everything we do."
-            />
-            <ValueCard
-              icon={Users2}
-              title="Person‑Centred"
-              desc="You make the decisions. We build supports around your goals."
-            />
-            <ValueCard
-              icon={Clock}
-              title="Reliability"
-              desc="Consistent, dependable support you can count on."
-            />
-            <ValueCard
-              icon={Stethoscope}
-              title="Clinical Excellence"
-              desc="Led by experienced clinicians and trained support staff."
-            />
-            <ValueCard
-              icon={Sparkles}
-              title="Continuous Improvement"
-              desc="We keep learning and refining to deliver better outcomes."
-            />
-          </div>
-        </div>
-      </section>
+      <AboutValue />
 
       {/* Team */}
       <section className="bg-[#0b3a74] text-white">
@@ -231,39 +96,6 @@ export default function AboutPage() {
 
       <Footer />
     </main>
-  );
-}
-
-function Stat({ value = "96%", label = "Positive Feedback" }) {
-  return (
-    <div className="flex flex-col items-center justify-center rounded-xl bg-white py-4 text-center">
-      <div className="text-3xl font-extrabold text-[#0b3a74]">{value}</div>
-      <div className="mt-1 text-xs text-gray-600">{label}</div>
-    </div>
-  );
-}
-
-function Card({ icon, title, desc }) {
-  return (
-    <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-      <div className="inline-flex size-11 items-center justify-center rounded-full bg-[#e23d35]/10 text-[#e23d35]">
-        {icon}
-      </div>
-      <h3 className="mt-4 text-xl font-extrabold text-gray-900">{title}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-gray-600">{desc}</p>
-    </div>
-  );
-}
-
-function ValueCard({ icon: Icon, title, desc }) {
-  return (
-    <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-      <div className="inline-flex size-11 items-center justify-center rounded-full bg-[#e23d35] text-white ring-4 ring-[#e23d35]/20">
-        <Icon className="size-6" aria-hidden="true" />
-      </div>
-      <h3 className="mt-4 text-lg font-extrabold text-gray-900">{title}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-gray-600">{desc}</p>
-    </div>
   );
 }
 
