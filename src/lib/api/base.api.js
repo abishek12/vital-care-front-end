@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: process.env.NEXT_PUBLIC_API_URL,
+  baseUrl: "https://api.vitalcaregroup.com.au/api/v1",
   credentials: "include",
   prepareHeaders: (headers) => {
     // Add auth token if available

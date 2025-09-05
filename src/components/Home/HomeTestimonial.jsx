@@ -8,34 +8,22 @@ import "swiper/css/pagination";
 import { motion } from "framer-motion";
 
 import BookAssessmentDrawer from "../Buton/AssessmentButton";
+import { useGetTestimonialsQuery } from "@/lib/api/testimonial.api";
+import { ApiStatusHandler } from "@/components/Redux/ApiStatusHandler";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 export default function HomeTestimonial() {
-  const testimonials = [
-    {
-      name: "Rachel W.",
-      role: "NDIS Participant",
-      rating: 5,
-      quote: `I've had a wonderful experience with Vital Care Group. Their commitment to high-quality, person-centred care has been evident from day one...`,
-    },
-    {
-      name: "Mark L.",
-      role: "NDIS Participant",
-      rating: 5,
-      quote: `The staff is knowledgeable and caring, making sure I feel supported and respected...`,
-    },
-    {
-      name: "Sophie D.",
-      role: "NDIS Participant",
-      rating: 5,
-      quote: `Absolutely amazing support from day one. They really understand individual needs...`,
-    },
-    {
-      name: "James T.",
-      role: "NDIS Participant",
-      rating: 4,
-      quote: `Very professional team, always responsive and ready to help...`,
-    },
-  ];
+  const [ref, isInView] = useIntersectionObserver({
+    threshold: 0.1,
+    rootMargin: "100px",
+  });
+  
+  const {
+    data: testimonials,
+    isLoading,
+    isError,
+    error,
+  } = useGetTestimonialsQuery();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -60,6 +48,7 @@ export default function HomeTestimonial() {
 
   return (
     <motion.section
+      // ref={ref}
       id="testimonials"
       aria-labelledby="testimonials-heading"
       className="relative isolate text-white"
@@ -110,22 +99,67 @@ export default function HomeTestimonial() {
 
         {/* Right section (Carousel) */}
         <motion.div className="md:col-span-7" variants={itemVariants}>
-          <Swiper
-            modules={[Pagination]}
-            spaceBetween={20}
-            slidesPerView={1}
-            breakpoints={{
-              768: { slidesPerView: 2 }, // Show 2 slides on tablet/desktop
-            }}
-            pagination={{ clickable: true }}
-            className="testimonial-swiper"
+          <ApiStatusHandler
+            isLoading={isLoading}
+            isError={isError}
+            error={error}
+            isEmpty={!testimonials || testimonials.items.length === 0}
+            loadingComponent={
+              <div className="flex h-64 items-center justify-center text-white">
+                <div className="text-center">
+                  <div className="mb-2 h-8 w-8 animate-spin rounded-full border-4 border-[var(--primary-red)] border-t-transparent mx-auto"></div>
+                  <p>Loading testimonials...</p>
+                </div>
+              </div>
+            }
+            errorComponent={
+              <div className="flex h-64 items-center justify-center text-white">
+                <div className="text-center">
+                  <p className="text-lg font-semibold">
+                    Error loading testimonials
+                  </p>
+                  <p className="mt-2 text-sm opacity-80">
+                    {error?.data?.message || "Please try again later"}
+                  </p>
+                </div>
+              </div>
+            }
+            emptyComponent={
+              <div className="flex h-64 items-center justify-center text-white">
+                <div className="text-center">
+                  <p className="text-lg font-semibold">No testimonials yet</p>
+                  <p className="mt-2 text-sm opacity-80">
+                    Be the first to share your experience!
+                  </p>
+                </div>
+              </div>
+            }
           >
-            {testimonials.map((t, idx) => (
-              <SwiperSlide key={idx}>
-                <TestimonialCard {...t} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+            {/* Added conditional rendering for testimonials */}
+            {testimonials && testimonials.items.length > 0 && (
+              <Swiper
+                modules={[Pagination]}
+                spaceBetween={20}
+                slidesPerView={1}
+                breakpoints={{
+                  768: { slidesPerView: 2 },
+                }}
+                pagination={{ clickable: true }}
+                className="testimonial-swiper"
+              >
+                {testimonials.items.map((testimonial) => (
+                  <SwiperSlide key={testimonial.id}>
+                    <TestimonialCard
+                      name={testimonial.fullname}
+                      role="NDIS Participant"
+                      rating={testimonial.rating || 5}
+                      quote={testimonial.description}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            )}
+          </ApiStatusHandler>
         </motion.div>
       </div>
     </motion.section>
@@ -180,8 +214,6 @@ function Stars({ count = 5 }) {
           <motion.div
             key={i}
             custom={i}
-            initial="hidden"
-            animate="visible"
             variants={starVariants}
           >
             <Star
