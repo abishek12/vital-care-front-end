@@ -22,11 +22,14 @@ export default function RootLayout({ children }) {
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
       <body className={`${lato.variable} antialiased`}>
-        {children}
-        <ScrollToTop />
+        <ReduxProvider>
+          {children}
+          <ScrollToTop />
+        </ReduxProvider>
       </body>
     </html>
   );
 }
 
+import ReduxProvider from "@/components/Redux/ReduxProvider";
 import ScrollToTop from "@/components/ScrollToTop/page";
