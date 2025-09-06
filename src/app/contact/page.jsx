@@ -1,16 +1,7 @@
 "use client";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
-import ContactForm from "@/components/Form/ContactForm";
 import { MapPin, Mail, Phone, Clock, MessageCircleMore } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-
-// export const metadata = {
-//   title: "Contact Us | Vital Care Group",
-//   description:
-//     "Reach out to Vital Care Group for enquiries about NDIS supports, nursing care, or general questions. We're here to help.",
-// };
 
 // Animation variants
 const fadeIn = {
@@ -214,3 +205,7 @@ export default function ContactPage() {
     </main>
   );
 }
+
+import Navbar from "@/components/Navbar/Navbar";
+import Footer from "@/components/Footer/Footer";
+import ContactForm from "@/components/Form/ContactForm";

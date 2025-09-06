@@ -1,26 +1,42 @@
 "use client";
 
 import { useState } from "react";
+import { useCreateContactMutation } from "@/lib/api/contact.api";
 
 export default function ContactForm() {
+  const [createContact, { isLoading, isError, isSuccess }] =
+    useCreateContactMutation();
+
   const [formData, setFormData] = useState({
     fullname: "",
     email: "",
     subject: "",
-    description: "",
+    message: "",
   });
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
-    // Here you can integrate API call
+
+    try {
+      await createContact(formData).unwrap();
+      // Reset form on success
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Failed to submit form:", error);
+    }
   };
 
   return (
@@ -72,8 +88,8 @@ export default function ContactForm() {
           Description
         </label>
         <textarea
-          name="description"
-          value={formData.description}
+          name="message"
+          value={formData.message}
           onChange={handleChange}
           required
           rows={4}
@@ -81,11 +97,29 @@ export default function ContactForm() {
         ></textarea>
       </div>
 
+      {/* Status Messages */}
+      {isError && (
+        <div className="rounded-md bg-red-50 p-3">
+          <p className="text-sm text-red-800">
+            There was an error submitting your message. Please try again.
+          </p>
+        </div>
+      )}
+
+      {isSuccess && (
+        <div className="rounded-md bg-green-50 p-3">
+          <p className="text-sm text-green-800">
+            Thank you! Your message has been sent successfully.
+          </p>
+        </div>
+      )}
+
       <button
         type="submit"
-        className="w-full rounded-full bg-[#0b3a74] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#0a3366]"
+        disabled={isLoading}
+        className="w-full rounded-full bg-[#0b3a74] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#0a3366] hover:cursor-pointer"
       >
-        Send Message
+         {isLoading ? 'Sending...' : 'Send Message'}
       </button>
     </form>
   );
