@@ -10,6 +10,7 @@ const quickLinks = [
   {
     label: "Feedback Form",
     href: "https://docs.google.com/forms/d/e/1FAIpQLScuXYn2Y0XpZ8oBJd538Vg0jAiejPLKD-8KNx6UqIcjxw4L1g/viewform?fbzx=-2727018033967158586",
+    target: "_blank",
   },
   { label: "Contact Us", href: "/contact" },
   { label: "Privacy Policy", href: "/privacy" },
@@ -91,6 +92,7 @@ export default function Footer() {
                     >
                       <Link
                         href={item.href}
+                        target={item.target || "_self"} 
                         className="text-sm text-white/90 hover:text-white"
                       >
                         {item.label}

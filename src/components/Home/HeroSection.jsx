@@ -41,7 +41,7 @@ function BackgroundImage() {
     <div className="absolute inset-0 -z-10">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/images/hero-one-bg.jpg"
+        src="/images/home_hero.jpeg"
         alt="Care professional assisting a client at home"
         className="h-full w-full object-cover object-center"
       />
